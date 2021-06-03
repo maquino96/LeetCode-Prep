@@ -5,6 +5,8 @@
  */
 var twoSum = function(nums, target) {
     
+//brute force    
+    
 //     let num2;
 //     let half;
     
@@ -18,7 +20,9 @@ var twoSum = function(nums, target) {
 //         if (nums.includes(num2) && nums.lastIndexOf(num2) !== i) {
 //             return [i, nums.indexOf(num2)]}
 //     }
+   
     
+// single pass using a hash map
     const solutionObj = {}
     
     for ( let i = 0; i < nums.length; i++ ) {
@@ -28,6 +32,9 @@ var twoSum = function(nums, target) {
         }
         solutionObj[nums[i]] = i 
     }
+    
+    
+    
     
     
 };
