@@ -13,6 +13,41 @@ var maxProfit = function(prices) {
     // }
     // return maxprofit
     
+    
+/*
+approach: 
+
+let p1 = 0
+let p2 = 1
+
+
+*/
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//     In formal terms, we need to find \max(\text{prices[j]} - \text{prices[i]})max(prices[j]−prices[i]), for every ii and jj such that j > ij>i.
+    
+      
     // one pass
     
     let minprice = Math.max(...prices)
