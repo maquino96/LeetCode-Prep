@@ -7,25 +7,38 @@ var isAnagram = function(s, t) {
     
     if(s.length !== t.length ) { return false }
     
-    let sObj = {}
-    let tObj = {}
+    // using hashtables: ineffecicnet use of 2 tables, can be done with 1 table and         2 passes
+    
+//     let sObj = {}
+//     let tObj = {}
     
     
-    for (let i = 0; i < s.length; i++){
-        if (sObj[s[i]]) { sObj[s[i]]=sObj[s[i]]+1
-                  } else { sObj[s[i]] = 1 }
-    }
+//     for (let i = 0; i < s.length; i++){
+//         if (sObj[s[i]]) { sObj[s[i]]=sObj[s[i]]+1
+//                   } else { sObj[s[i]] = 1 }
+//     }
     
-    for (let i = 0; i < t.length; i++){
-        if (tObj[t[i]]) { tObj[t[i]]=tObj[t[i]]+1
-                  } else { tObj[t[i]] = 1 }
-    }
+//     for (let i = 0; i < t.length; i++){
+//         if (tObj[t[i]]) { tObj[t[i]]=tObj[t[i]]+1
+//                   } else { tObj[t[i]] = 1 }
+//     }
     
-    for ( let key in sObj ) {
-        if (!tObj[key]) { return false}
-        if ( tObj[key] !== sObj[key]){return false}
-    }
-    return true; 
+//     for ( let key in sObj ) {
+//         if (!tObj[key]) { return false}
+//         if ( tObj[key] !== sObj[key]){return false}
+//     }
+//     return true; 
+    
+    
+//  sorting approach
+    let sort1 = s.split('').sort().join('')
+    let sort2 = t.split('').sort().join('')
+    
+    console.log(sort1,sort2)
+    
+    return sort1 == sort2
+    
+    
 };
 
 /*
@@ -39,6 +52,8 @@ output boolean value
 
 anagram, nagaram >> true
 rat, car >> false
+
+case, check if both string lengths are equal
 
 let sObj = {}
 let tObj = {}
