@@ -10,47 +10,63 @@
  * @param {number} n
  * @return {ListNode}
  */
-
-/*
-
-Keyword is 'from the END'
-
-approach: 2 passes
--- figure ot the length on the first pass
--- remove the nth node
-
-
- p 
-   1->2->3->4->5
-   c  n
-   
-   
-
-*/
 var removeNthFromEnd = function(head, n) {
-
+        
+//     if (!head.next || !head) {
+//         return head = head.next
+//     }
+    
+//     let count = 1
+//     let result = head;
+    
+//     let curr = head;
+//     let next = head.next;
+//     let swap;
+    
+//     while (head.next) {
+//         head = head.next
+//         count++
+//         console.log(count)
+        
+//     }
+    
+//     let newN = count - n;
+    
+//     while (newN >= 0) {
+//         if ( newN === 0) {
+//             return curr.next
+//         }
+//         if( newN === 1) {
+//             swap = curr.next.next
+//             curr.next = swap
+//             break
+//         }
+        
+//         curr = next
+//         next = curr.next
+//         newN--
+//         console.log(newN)
+//     }
+    
+//     return result
+    
+//     2n >> O(n) not the most efficient
     let dummy = new ListNode(0);
-    dummy.next = head
+    dummy.next = head;
     
-    let length = 0
-    let first = head
+    let first = dummy;
+    let second = dummy;
     
-    while (first != null){
-        length++
+    for ( let i = 1; i <= n+1; i++){
         first = first.next
     }
-    length -= n
     
-    first = dummy
-    
-    while ( length > 0 ) {
-        length--;
-        first = first.next; 
+    while (first != null) {
+        first = first.next
+        second = second.next
     }
-    console.log( first )
-    first.next = first.next.next
     
+    second.next = second.next.next
     return dummy.next
-    
     
 };
