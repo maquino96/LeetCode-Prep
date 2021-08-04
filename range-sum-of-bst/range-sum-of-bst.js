@@ -13,7 +13,6 @@
  * @return {number}
  */
 var rangeSumBST = function(root, low, high) {
-    
     let results = []
     
     const dfs = (root) => {
