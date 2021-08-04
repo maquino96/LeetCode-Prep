@@ -10,13 +10,9 @@
  * @param {TreeNode} root
  * @return {number}
  */
-
-
-
 var diameterOfBinaryTree = function(root) {
     
     let diameter = 0;
-
     
     const longestPath = (node) => {
     if (node === null) return 0;
