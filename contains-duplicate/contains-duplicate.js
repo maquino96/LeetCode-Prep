@@ -3,14 +3,11 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    let map = {}
-    for ( let i = 0; i < nums.length; i++){
-      if ( !map[nums[i]] ) map[nums[i]] = 1
-      else map[nums[i]]++
-    }
+    const dictionary = {}
     
-    for (int in map) {
-        if (map[int] !== 1) return true 
+    for (let i = 0; i <nums.length; i++){
+        if (dictionary[nums[i]]) return true
+        else dictionary[nums[i]] = 1
     }
     
     return false
