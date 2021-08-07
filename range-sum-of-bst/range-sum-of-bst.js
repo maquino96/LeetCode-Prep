@@ -13,12 +13,12 @@
  * @return {number}
  */
 var rangeSumBST = function(root, low, high) {
-    let results = []
+    let result = 0
     
     const dfs = (root) => {
         if(root === null) return 0
         
-        if (root.val >= low && root.val <=high) results.push(root.val);
+        if (root.val >= low && root.val <=high) result+=root.val;
         
         dfs(root.left)
         dfs(root.right)
@@ -26,6 +26,6 @@ var rangeSumBST = function(root, low, high) {
     
     dfs(root)
     
-    return results.reduce((a,b)=> a+b, 0)
+    return result
     
 };
