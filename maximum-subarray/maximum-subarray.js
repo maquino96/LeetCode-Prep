@@ -4,16 +4,14 @@
  */
 var maxSubArray = function(nums) {
     
-    let subSum = nums[0]
-    let max = nums[0]
+    let max = -Infinity
+    let temp = 0
     
-    for(let i = 1; i < nums.length; i++) {
-        // if the sum of the subarray is negative we're no longer interested and start         summin again starting at the current value
-        subSum = Math.max(subSum + nums[i], nums[i])
-
-        // tracks the subarray with the highest sum found
-        max = Math.max(subSum, max)
+    for ( let i = 0; i < nums.length; i++){
+        temp = Math.max( nums[i], temp + nums[i])
+        max = temp > max ? temp : max
     }
-    
+        
     return max
+
 };
