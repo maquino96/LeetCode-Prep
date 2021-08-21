@@ -12,45 +12,23 @@
  */
 var levelOrder = function(root) {
     
-    if (root === null) return []
+    if(!root) return []
     
-    let result = [[root.val]]
-    let finished = false;
     
     let previousLevel = [root]
+    let result = [[root.val]]
     
-    let getNextLevel = (list) => {
+    while (previousLevel.length !== 0){
         let temp = []
-        let value = []
-        list.forEach( el => {
-            if (el.left) {
-                temp.push(el.left);
-                value.push(el.left.val)
-            }
-            if (el.right) {
-                temp.push(el.right);
-                value.push(el.right.val)
-            }
+        previousLevel.forEach( node => {            
+            if (node.left) temp.push(node.left)
+            if (node.right) temp.push(node.right)
         })
-        if (!temp.length) {
-            finished = true;
-            return;
-        }
-        result.push(value);
-        previousLevel = temp;
-
+        if (temp.length === 0) break
+        result.push(temp.map(node => node.val))
+        previousLevel = temp
     }
     
-    let checkList = (list) => {
-        for (let node of list ){
-            if( node.val !== null) return true
-        }
-        return false
-    }
+    return result    
     
-    while ( !finished) {
-        getNextLevel(previousLevel)
-    }
-    
-    return result;
 };
